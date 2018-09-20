@@ -21,3 +21,7 @@
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-pack ###
+
+###< el-professor ###
+/private/
+###> el-professor ###
