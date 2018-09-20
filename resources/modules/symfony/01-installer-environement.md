@@ -45,7 +45,7 @@ sudo php composer-setup.php --install-dir=/usr/bin --filename=composer
 php -r "unlink('composer-setup.php');"
 ```
 
-La version de composer devrait s'afficer quand vous tapez :
+La version de composer devrait s'afficher quand vous tapez :
 
 ```bash
 composer --version
@@ -58,7 +58,7 @@ sudo apt-get install mariadb-server
 sudo service mysql start
 ```
 
-## Créer votre espace de travail
+## Créez votre espace de travail
 
 Créez un dossier Symfony dans "C:\Utilisateurs\gabriel\Symfony" (remplacez votre nom d'utilisateur).
 
