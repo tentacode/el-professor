@@ -11,3 +11,9 @@ courses:
         image: /img/courses/rappels-php/logo.jpg
         chapters:
             directory: resources/courses/rappels-php
+    shopping:
+        name: Projet Shopping
+        description: Projet de mini-site marchand
+        image: /img/courses/shopping/logo.jpg
+        chapters:
+            directory: resources/courses/shopping
