@@ -1,0 +1,13 @@
+courses:
+    symfony-4:
+        name: Symfony 4
+        description: Apprendre Symfony 4 en s'amusant ☠️
+        image: /img/courses/symfony-4/logo.png
+        chapters:
+            directory: resources/courses/symfony-4
+    rappels-php:
+        name: Rappels PHP
+        description: Révisions PHP 7.2
+        image: /img/courses/rappels-php/logo.jpg
+        chapters:
+            directory: resources/courses/rappels-php

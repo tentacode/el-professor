@@ -1,4 +1,4 @@
-# Installer votre environement de développement sous Windows
+# L'environement de développement
 
 Pour que tout le monde soit sur le même environement de développement (version de PHP, MySQL) sous Windows, nous utiliserons le WSL (Windows Subsystem for Linux).
 

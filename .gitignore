@@ -23,5 +23,6 @@ yarn-error.log
 ###< symfony/webpack-encore-pack ###
 
 ###< el-professor ###
+/bin/
 /private/
 ###> el-professor ###

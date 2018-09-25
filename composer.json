@@ -5,10 +5,13 @@
         "php": "^7.2",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "erusev/parsedown-extra": "^0.7.1",
         "sensio/framework-extra-bundle": "^5.2",
         "symfony/asset": "*",
         "symfony/console": "*",
         "symfony/expression-language": "*",
+        "symfony/filesystem": "*",
+        "symfony/finder": "*",
         "symfony/flex": "^1.1",
         "symfony/form": "*",
         "symfony/framework-bundle": "*",
@@ -25,6 +28,7 @@
         "symfony/yaml": "*"
     },
     "require-dev": {
+        "phpspec/phpspec": "^5.0",
         "sensiolabs/security-checker": "^4.1",
         "symfony/debug-pack": "*",
         "symfony/dotenv": "*",
@@ -34,6 +38,7 @@
         "symfony/web-server-bundle": "*"
     },
     "config": {
+        "bin-dir": "bin",
         "preferred-install": {
             "*": "dist"
         },

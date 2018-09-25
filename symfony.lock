@@ -80,6 +80,12 @@
     "egulias/email-validator": {
         "version": "2.1.5"
     },
+    "erusev/parsedown": {
+        "version": "1.7.1"
+    },
+    "erusev/parsedown-extra": {
+        "version": "0.7.1"
+    },
     "facebook/webdriver": {
         "version": "1.6.0"
     },
@@ -107,6 +113,15 @@
     "phpdocumentor/type-resolver": {
         "version": "0.4.0"
     },
+    "phpspec/php-diff": {
+        "version": "v1.1.0"
+    },
+    "phpspec/phpspec": {
+        "version": "5.0.2"
+    },
+    "phpspec/prophecy": {
+        "version": "1.8.0"
+    },
     "psr/cache": {
         "version": "1.0.1"
     },
@@ -121,6 +136,18 @@
     },
     "psr/simple-cache": {
         "version": "1.0.1"
+    },
+    "sebastian/comparator": {
+        "version": "3.0.2"
+    },
+    "sebastian/diff": {
+        "version": "3.0.1"
+    },
+    "sebastian/exporter": {
+        "version": "3.1.0"
+    },
+    "sebastian/recursion-context": {
+        "version": "3.0.0"
     },
     "sensio/framework-extra-bundle": {
         "version": "5.2",

@@ -9,6 +9,12 @@
 require('../scss/global.scss');
 require('bootstrap');
 require('../scss/el-professor.scss');
+require('../highlight/styles/agate.css');
+require('highlight.js');
+
+import hljs from 'highlight.js';
+
+hljs.initHighlightingOnLoad();
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 // var $ = require('jquery');

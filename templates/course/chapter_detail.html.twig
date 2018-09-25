@@ -1,0 +1,31 @@
+{% extends 'layout/base_layout.html.twig' %}
+
+{% block body %}
+<div class="container py-5">
+    <div class="row">
+    
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="{{ asset(course.image) }}" alt="Course logo">
+                <div class="card-body">
+                    <h5 class="card-title">{{ course.name }}</h5>
+                    <p class="card-text">{{ course.description }}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for chapter in course.chapters %}
+                        <li class="list-group-item">
+                            <a href="{{ path('chapter_detail', {
+                                'courseSlug': course.slug,
+                                'chapterSlug': chapter.slug
+                            }) }}">{{ chapter.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="chapter-content col-md-8">
+            {{ chapter.content|raw }}
+        </div>
+    </div>
+</div>
+{% endblock %}
