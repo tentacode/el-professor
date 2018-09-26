@@ -17,3 +17,9 @@ courses:
         image: /img/courses/shopping/logo.jpg
         chapters:
             directory: resources/courses/shopping
+    git:
+        name: Git
+        description: Aide git
+        image: /img/courses/git/logo.png
+        chapters:
+            directory: resources/courses/git
