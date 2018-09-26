@@ -58,6 +58,34 @@ sudo apt-get install mariadb-server
 sudo service mysql start
 ```
 
+## Installation de yarn
+
+Installez d'abord nodejs.
+
+```bash
+bash -c "curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -" 
+sudo apt-get update
+sudo apt-get install nodejs
+```
+
+Et vérifiez que node est en version 10 ou supérieure :
+
+```bash
+node --version
+```
+
+Puis installez yarn :
+
+```bash
+npm install --global yarn
+```
+
+Et vérifiez la version :
+
+```bash
+yarn --version
+```
+
 ## Créez votre espace de travail
 
 Créez un dossier Symfony dans "C:\Utilisateurs\gabriel\Symfony" (remplacez votre nom d'utilisateur).
