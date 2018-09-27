@@ -77,7 +77,7 @@ node --version
 Puis installez yarn :
 
 ```bash
-npm install --global yarn
+sudo npm install --global yarn
 ```
 
 Et vérifiez la version :
