@@ -58,6 +58,30 @@ sudo apt-get install mariadb-server
 sudo service mysql start
 ```
 
+Ensuite, créez un utilisateur :
+
+```bash
+sudo mysql -uroot
+```
+
+Puis, dans mysql, en changeant "gabriel" par votre prénom (aux deux endroits) et "jaimalespates" par un mot de passe :
+
+```bash
+USE mysql;
+DELETE FROM user WHERE user = "";
+CREATE USER "gabriel"@"%" IDENTIFIED BY "jaimalespates";
+GRANT ALL PRIVILEGES ON *.* TO "gabriel"@"%";
+FLUSH PRIVILEGES;
+exit
+```
+
+Vous devriez pouvoir vous connecter à mysql en saisissant votre mot de passe :
+
+```bash
+mysql -ugabriel -p
+```
+
+
 ## Installation de yarn
 
 Installez d'abord nodejs.
