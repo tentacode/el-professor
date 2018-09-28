@@ -13,6 +13,7 @@ Vous serez évalués sur vos compétences à :
 
 * Créer des entités / tables MySQL avec les bons types de champs qui correspondent à vos produits.
 * Utiliser les migrations pour créer votre base de données.
+* Générer des données de tests cohérentes avec des fixtures pour remplir votre base de données.
 
 ## Consignes
 
@@ -35,3 +36,13 @@ Vous avez déjà une classe `src/Entity/Product.php` et `src/Entity/User.php` et
 * Créez vos tables avec la commande `bin/console doctrine:migration:migrate`.
 
 ### Créez vos fixture
+
+Il n'y a pas encore de doc sur la gestion des fixtures avec Symfony 4, mais vous avez toute l'aide dont vous avez besoin avec la commande `bin/console make:fixtures --help`.
+
+Vous pouvez aussi lire [la documentation Symfony 3 sur les fixtures](https://symfony.com/doc/master/bundles/DoctrineFixturesBundle/index.html) qui vous donnera une idée du principe (mais l'utilisation est un peu différente) : 
+
+* Si la commande plante, installer le paquet manquant.
+* Générez une classe de fixtures (par exemple `ShoppingFixtures`).
+* Remplissez la classe avec vos données de tests (instanciez des entités, remplissez les données...).
+* Lancer les fixtures avec `bin/console doctrine:fixtures:load`.
+* Vos données doivent apparaitre dans vos tables MySQL.
