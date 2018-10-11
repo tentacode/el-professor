@@ -77,7 +77,8 @@ Vous **devez** respecté les conventions de nommages PHP :
 
 * PSR-1 : [https://www.php-fig.org/psr/psr-1/](https://www.php-fig.org/psr/psr-1/)
 * PSR-2 : [https://www.php-fig.org/psr/psr-2/](https://www.php-fig.org/psr/psr-2/)
-* Twig : [https://twig.symfony.com/doc/2.x/coding_standards.html]()
+* Twig : [https://twig.symfony.com/doc/2.x/coding_standards.html](https://twig.symfony.com/doc/2.x/coding_standards.html)
+* HTML5 : [https://www.w3schools.com/html/html5_syntax.asp](https://www.w3schools.com/html/html5_syntax.asp)
 * Bien indenter votre code, avec 4 espaces (et aucunes tabulations).
 
 Vous pouvez installer [pretty](https://github.com/mnapoli/pretty) sur votre projet pour vous faciliter la vie (cet outil vous dira où sont les problèmes de coding standard dans votre code PHP).
