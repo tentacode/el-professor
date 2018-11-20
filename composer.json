@@ -28,6 +28,7 @@
         "symfony/yaml": "*"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.0",
         "phpspec/phpspec": "^5.0",
         "sensiolabs/security-checker": "^4.1",
         "symfony/debug-pack": "*",
@@ -81,7 +82,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "4.1.*"
+            "require": "4.2.*"
         }
     }
 }

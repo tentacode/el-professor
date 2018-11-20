@@ -1,40 +1,40 @@
-{% extends 'layout/base_layout.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block body %}
-        <section class="jumbotron text-center">
-            <div class="container">
-            <h1 class="jumbotron-heading"><i class="fas fa fa-glasses"></i>&nbsp;El Professor</h1>
-            <p class="lead text-muted">Je sais pas quoi mettre alors je vais mettre un Lorem Ipsum fertur neminem aliquando ob haec vel similia poenae addictum oblato de more elogio revocari iussisse, quod inexorabiles quoque principes factitarunt.</p>
-            </div>
-        </section>
+    <section class="jumbotron text-center">
+        <div class="container">
+        <h1 class="jumbotron-heading"><i class="fas fa fa-glasses"></i>&nbsp;El Professor</h1>
+        <p class="lead text-muted">Je sais pas quoi mettre alors je vais mettre un Lorem Ipsum fertur neminem aliquando ob haec vel similia poenae addictum oblato de more elogio revocari iussisse, quod inexorabiles quoque principes factitarunt.</p>
+        </div>
+    </section>
 
-        <div class="album py-5 bg-light">
-            <div class="container">
-                <div class="row">
-                    {% for course in courses %}
-                        <div class="col-md-4">
-                            <div class="card mb-4 shadow-sm">
-                                <a href="{{ path('chapter_detail', {'courseSlug': course.slug }) }}">
-                                    <img class="card-img-top" src="{{ asset(course.image) }}" alt="Logo du cours">
-                                </a>
-                                <div class="card-body">
-                                    <p class="card-text">{{ course.description }}</p>
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                {% for course in courses %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <a href="{{ path('chapter_detail', {'courseSlug': course.slug }) }}">
+                                <img class="card-img-top" src="{{ asset(course.image) }}" alt="Logo du cours">
+                            </a>
+                            <div class="card-body">
+                                <p class="card-text">{{ course.description }}</p>
 
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="btn-group">
-                                            <a 
-                                                href="{{ path('chapter_detail', {'courseSlug': course.slug }) }}"
-                                                class="btn btn-sm btn-outline-secondary"
-                                            >
-                                                Voir le cours
-                                            </a>
-                                        </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a 
+                                            href="{{ path('chapter_detail', {'courseSlug': course.slug }) }}"
+                                            class="btn btn-sm btn-outline-secondary"
+                                        >
+                                            Voir le cours
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    {% endfor %}
-                </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
+    </div>
 {% endblock %}

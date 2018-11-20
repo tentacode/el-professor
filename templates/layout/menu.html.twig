@@ -1,0 +1,26 @@
+<div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container d-flex justify-content-between">
+        <ul class="navbar-nav flex-row">
+            <li class="nav-item">
+                <a href="{{ path('landing') }}" class="navbar-brand d-flex align-items-center">
+                    <i class="fas fa-border fa-glasses"></i>&nbsp;
+                    <strong>El Professor</strong>
+                </a>
+            </li>
+            {% if is_granted('ROLE_PROFESSOR') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('professor_module_list') }}">
+                        <i class="fas fa-chalkboard-teacher"></i> Mes modules
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+        <ul class="navbar-nav flex-row">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ path('logout') }}">
+                    <i class="fas fa-sign-out-alt"></i> se déconnecter
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

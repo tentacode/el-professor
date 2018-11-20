@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="album py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                {% for evaluation in evaluations %}
+                    <div class="col-md-4">
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-body">
+                                <p class="card-text">{{ evaluation.name }}</p>
+
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a 
+                                            href="{{ path('professor_evaluation_detail', {
+                                                'evaluationId': evaluation.id
+                                            }) }}"
+                                            class="btn btn-sm btn-outline-secondary"
+                                        >
+                                            Voir l'évaluation
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <p>Pas d'évaluations pour ce module</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

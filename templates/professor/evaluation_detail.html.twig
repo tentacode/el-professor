@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="py-5 container">
+        <h1>{{ evaluation.name }}</h1>
+
+        <h2>Questions</h2>
+        <table class="table">
+            <tbody>
+                {% for question in evaluation.questions %}
+                    <tr>
+                        <th scope="row">
+                            {{ question.title }}
+                        </th>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <h2>Réponses</h2>
+        <table class="table">
+            <tbody>
+                {% for student in evaluation.students %}
+                    <tr>
+                        <th scope="row">{{ student.email }}</th>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
