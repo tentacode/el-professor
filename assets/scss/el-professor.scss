@@ -39,6 +39,14 @@ footer p {
 
 .course-toc {
     margin-bottom: 2rem;
+
+    .active a {
+        color: white;
+    }
+
+    .list-group-item-secondary {
+        background: #EFEFFF;
+    }
 }
 
 .chapter-content {
@@ -52,6 +60,16 @@ footer p {
 
     h2 {
         margin-top: 2rem;
+    }
+
+    blockquote {
+        padding: 0.6em;
+        border-left: 5px #999 solid;
+        background: #EEE;
+
+        p {
+            margin-bottom: 0;
+        }
     }
 }
 

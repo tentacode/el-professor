@@ -16,11 +16,13 @@
             {% endif %}
         </ul>
         <ul class="navbar-nav flex-row">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ path('logout') }}">
-                    <i class="fas fa-sign-out-alt"></i> se déconnecter
-                </a>
-            </li>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('logout') }}">
+                        <i class="fas fa-sign-out-alt"></i> se déconnecter
+                    </a>
+                </li>
+            {% endif %}
         </ul>
     </div>
 </div>

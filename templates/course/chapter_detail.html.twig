@@ -3,7 +3,6 @@
 {% block body %}
 <div class="container py-5">
     <div class="row">
-    
         <div class="col-md-4">
             <div class="course-toc card">
                 <img class="card-img-top" src="{{ asset(course.image) }}" alt="Course logo">
@@ -12,13 +11,25 @@
                     <p class="card-text">{{ course.description }}</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    {% for chapter in course.chapters %}
-                        <li class="list-group-item">
+                    {% for otherChapter in course.chapters %}
+                        {% set chapterActive = otherChapter == chapter %}
+                        <li class="list-group-item {% if chapterActive %}active{% endif %}">
                             <a href="{{ path('chapter_detail', {
                                 'courseSlug': course.slug,
-                                'chapterSlug': chapter.slug
-                            }) }}">{{ chapter.title }}</a>
+                                'chapterSlug': otherChapter.slug
+                            }) }}">{{ otherChapter.title }}</a>
                         </li>
+
+                        {% if chapterActive %}
+                            {% set subChapters = chapter.subChapters %}
+                            {% if subChapters|length > 1 %}
+                                {% for subChapter in chapter.subChapters %}
+                                    <li class="list-group-item list-group-item-secondary">
+                                        <a href="#{{ subChapter.slug }}">{{ subChapter.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            {% endif %}
+                        {% endif %}
                     {% endfor %}
                 </ul>
             </div>

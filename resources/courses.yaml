@@ -1,4 +1,10 @@
 courses:
+    shell-scripting:
+        name: Shell Scripting
+        description: "sudo rm -Rf /"
+        image: /img/courses/shell-scripting/logo.png
+        chapters:
+            directory: resources/courses/shell-scripting
     symfony-4:
         name: Symfony 4
         description: Apprendre Symfony 4 en s'amusant ☠️

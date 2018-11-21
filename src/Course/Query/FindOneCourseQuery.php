@@ -14,13 +14,11 @@ class FindOneCourseQuery
 {
     private $projectDirectory;
     private $finder;
-    private $parsedown;
 
     public function __construct(string $projectDirectory)
     {
         $this->projectDirectory = $projectDirectory;
         $this->finder = new Finder;
-        $this->parsedown = new \ParsedownExtra;
     }
 
     public function __invoke(string $slug): Course
@@ -49,17 +47,11 @@ class FindOneCourseQuery
         ;
 
         foreach ($files as $file) {
-            $chapterContent = $this->parsedown->text(file_get_contents($file->getRealPath()));
-
-            $chapterTitle = $file->getBasename('.md');
-            if (preg_match('/<h1>(.*)<\/h1>/', $chapterContent, $matches)) {
-                $chapterTitle = $matches[1];
-            }
+            $markdown = file_get_contents($file->getRealPath());
 
             $course->addChapter(new Chapter(
-                $chapterTitle,
-                $file->getBasename('.md'),
-                $chapterContent
+                $markdown,
+                $file->getBasename('.md')
             ));
         }
 
