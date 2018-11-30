@@ -11,6 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Evaluation
 {
+    const DEFAULT_TOTAL_POINTS = 20;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -97,5 +99,50 @@ class Evaluation
         return array_map(function (Participation $participation): User {
             return $participation->getUser();
         }, $studentParticipations);
+    }
+
+    public function getScores(): array
+    {
+        $scores = [];
+
+        foreach ($this->questions as $question) {
+            $scores = array_merge($scores, $question->getScores()->toArray());
+        }
+        
+        return $scores;
+    }
+
+    public function getTotalPoints(): int
+    {
+        return self::DEFAULT_TOTAL_POINTS;
+    }
+
+    public function getStudentScore(User $student): float
+    {
+        // $studentScores = $this->
+        return 10;
+    }
+
+    public function studentHasBeenEvaluated(User $student): bool
+    {
+        $studentScores = array_filter($this->getScores(), function ($score) use ($student) {
+
+        });
+    }
+
+    public function getMean(): float
+    {
+
+        return 10.0;
+    }
+
+    public function getCompletion(): float
+    {
+        $totalStudents = count($this->getStudents());
+        $totalQuestions = count($this->getQuestions());
+
+        $goal = $totalStudents * $totalQuestions;
+
+        return count($this->getScores()) / $goal * 100;
     }
 }

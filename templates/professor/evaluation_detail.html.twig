@@ -4,6 +4,11 @@
     <div class="py-5 container">
         <h1>{{ evaluation.name }}</h1>
 
+        <ul>
+            <li>Moyenne : {{ evaluation.mean|number_format(2, ',') }} / {{ evaluation.totalPoints() }}</li>
+            <li>Complétion : {{ evaluation.completion|number_format(2, ',') }} %</li>
+        </ul>
+
         <h2>Questions</h2>
         <table class="table">
             <tbody>
@@ -22,6 +27,13 @@
                 {% for student in evaluation.students %}
                     <tr>
                         <th scope="row">{{ student.email }}</th>
+                        <td>
+                            {% if evaluation.studentHasBeenEvaluated(student) %}
+                                Note : {{ evaluation.studentScore(student) }} / {{ evaluation.totalPoints() }}
+                            {% else %}
+                                Non évalué
+                            {% endif %}
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>

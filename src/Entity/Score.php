@@ -17,6 +17,12 @@ class Score
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Question", inversedBy="scores")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -32,11 +38,13 @@ class Score
      */
     private $comment;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
+    public function __construct(User $user, Question $question, float $percentage, ?string $comment = null)
+    {
+        $this->user = $user;
+        $this->question = $question;
+        $this->percentage = $percentage;
+        $this->comment = $comment;
+    }
 
     public function getId(): ?int
     {
@@ -48,23 +56,9 @@ class Score
         return $this->question;
     }
 
-    public function setQuestion(?Question $question): self
-    {
-        $this->question = $question;
-
-        return $this;
-    }
-
     public function getPercentage()
     {
         return $this->percentage;
-    }
-
-    public function setPercentage($percentage): self
-    {
-        $this->percentage = $percentage;
-
-        return $this;
     }
 
     public function getComment(): ?string
@@ -72,22 +66,8 @@ class Score
         return $this->comment;
     }
 
-    public function setComment(?string $comment): self
-    {
-        $this->comment = $comment;
-
-        return $this;
-    }
-
     public function getUser(): ?User
     {
         return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
-
-        return $this;
     }
 }

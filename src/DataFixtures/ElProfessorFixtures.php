@@ -10,6 +10,7 @@ use App\Entity\Module;
 use App\Entity\Participation;
 use App\Entity\Evaluation;
 use App\Entity\Question;
+use App\Entity\Score;
 
 class ElProfessorFixtures extends Fixture
 {
@@ -33,36 +34,49 @@ class ElProfessorFixtures extends Fixture
         ]);
         $em->persist($professor);
 
-        $student1 = new User();
-        $student1->setEmail('berlin@lcdp.es');
-        $student1->setPassword($this->encoder->encodePassword(
-            $student1,
+        $studentBerlin = new User();
+        $studentBerlin->setEmail('berlin@lcdp.es');
+        $studentBerlin->setPassword($this->encoder->encodePassword(
+            $studentBerlin,
             'bellaciao'
         ));
-        $student1->setRoles([
+        $studentBerlin->setRoles([
             User::ROLE_STUDENT,
         ]);
-        $em->persist($student1);
+        $em->persist($studentBerlin);
 
-        $student2 = new User();
-        $student2->setEmail('tokyo@lcdp.es');
-        $student2->setPassword($this->encoder->encodePassword(
-            $student2,
+        $studentTokyo = new User();
+        $studentTokyo->setEmail('tokyo@lcdp.es');
+        $studentTokyo->setPassword($this->encoder->encodePassword(
+            $studentTokyo,
             'bellaciao'
         ));
-        $student2->setRoles([
+        $studentTokyo->setRoles([
             User::ROLE_STUDENT,
         ]);
-        $em->persist($student2);
+        $em->persist($studentTokyo);
+
+        $studentDenver = new User();
+        $studentDenver->setEmail('denver@lcdp.es');
+        $studentDenver->setPassword($this->encoder->encodePassword(
+            $studentDenver,
+            'bellaciao'
+        ));
+        $studentDenver->setRoles([
+            User::ROLE_STUDENT,
+        ]);
+        $em->persist($studentDenver);
 
         $fakeModule = new Module('Les faux billets');
         $em->persist($fakeModule);
 
         $p1 = new Participation($fakeModule, $professor, [Participation::ROLE_TEACH]);
         $em->persist($p1);
-        $p2 = new Participation($fakeModule, $student1, [Participation::ROLE_LEARN]);
+        $p2 = new Participation($fakeModule, $studentBerlin, [Participation::ROLE_LEARN]);
         $em->persist($p2);
-        $p3 = new Participation($fakeModule, $student2, [Participation::ROLE_LEARN]);
+        $p3 = new Participation($fakeModule, $studentTokyo, [Participation::ROLE_LEARN]);
+        $em->persist($p3);
+        $p3 = new Participation($fakeModule, $studentDenver, [Participation::ROLE_LEARN]);
         $em->persist($p3);
 
         $evaluation = new Evaluation($fakeModule, 'Le dollar zimbabwéen');
@@ -83,6 +97,16 @@ class ElProfessorFixtures extends Fixture
             10
         );
         $em->persist($question2);
+
+        $scoreBerlinQuestion1 = new Score($studentBerlin, $question1, 100);
+        $em->persist($scoreBerlinQuestion1);
+        $scoreBerlinQuestion2 = new Score($studentBerlin, $question2, 100);
+        $em->persist($scoreBerlinQuestion2);
+
+        $scoreTokyoQuestion1 = new Score($studentTokyo, $question1, 50, 'Nul.');
+        $em->persist($scoreTokyoQuestion1);
+        $scoreTokyoQuestion2 = new Score($studentTokyo, $question2, 0, 'Non.');
+        $em->persist($scoreTokyoQuestion2);
 
         $em->flush();
     }

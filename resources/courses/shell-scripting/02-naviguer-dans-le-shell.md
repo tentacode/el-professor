@@ -95,6 +95,10 @@ Utilisée sur un répertoire, la commande `file` affichera juste :
 
 > Downloads/: directory
 
+## stat - Afficher des statistiques sur un fichier
+
+@TODO
+
 ## less - Afficher le contenu d'un fichier
 
 Pour afficher le contenu d'un fichier en intégralité on peut utiliser la commande `cat`. Cependant la commande `less` est à privilégié car elle permet de se déplacer progressivement dans le fichier ligne par ligne avec la touche entrée ou les flèches haut / bas, et page par page avec les touches *page suivante* (ou b) et *page précedente* (ou la touche espace).

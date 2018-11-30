@@ -78,4 +78,9 @@ class Question
     {
         return $this->evaluation;
     }
+
+    public function getScores(): Collection
+    {
+        return $this->scores;
+    }
 }
