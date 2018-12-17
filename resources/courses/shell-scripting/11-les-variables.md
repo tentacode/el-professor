@@ -1,4 +1,4 @@
-# 10 - Les variables
+# 11 - Les variables
 
 Dans un script shell on peut utiliser n'importe quelle variable disponible dans le shell, et créer nos propres variables.
 

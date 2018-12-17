@@ -1,4 +1,4 @@
-# 9 - Les scripts shell
+# 10 - Les scripts shell
 
 Un script shell est un fichier exécutable qui contient un ensemble de commande shell. Toutes les commandes shell et les mécanismes du shell peuvent être exécutés dans un script shell, et renvient au même à taper les commandes une à une dans le shell.
 
