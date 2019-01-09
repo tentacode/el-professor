@@ -2,7 +2,7 @@
     "type": "project",
     "license": "proprietary",
     "require": {
-        "php": "^7.2",
+        "php": "^7.3",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "erusev/parsedown-extra": "^0.7.1",
@@ -31,7 +31,7 @@
         "doctrine/doctrine-fixtures-bundle": "^3.0",
         "phpspec/phpspec": "^5.0",
         "phpstan/phpstan": "^0.10.8",
-        "sensiolabs/security-checker": "^4.1",
+        "sensiolabs/security-checker": "*",
         "squizlabs/php_codesniffer": "*",
         "symfony/debug-pack": "*",
         "symfony/dotenv": "*",

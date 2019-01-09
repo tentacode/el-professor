@@ -1,7 +1,7 @@
 language: php
 
 php:
-    - 7.2
+    - 7.3
 
 before_script:
     - composer install --dev -v --prefer-source
@@ -10,3 +10,4 @@ script:
     - bin/phpspec run -fpretty --verbose --no-interaction
     - bin/phpstan analyse src --level=7
     - bin/phpcs
+    - bin/console security:check
