@@ -1,26 +1,26 @@
 security:
-    encoders:
-        App\Entity\User:
-            algorithm: bcrypt
+    # encoders:
+    #     App\Entity\User:
+    #         algorithm: bcrypt
 
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
-    providers:
-        # used to reload user from session & other features (e.g. switch_user)
-        app_user_provider:
-            entity:
-                class: App\Entity\User
-                property: email
+    # providers:
+    #     # used to reload user from session & other features (e.g. switch_user)
+    #     app_user_provider:
+    #         entity:
+    #             class: App\Entity\User
+    #             property: email
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: true
-            guard:
-                authenticators:
-                    - App\Security\LoginAuthenticator
-            logout:
-                path: logout
+            # guard:
+            #     authenticators:
+            #         - App\Security\LoginAuthenticator
+            # logout:
+            #     path: logout
 
             # activate different ways to authenticate
 
@@ -38,6 +38,6 @@ security:
         # - { path: ^/, roles: ROLE_USER }
         # - { path: ^/professor, roles: ROLE_PROFESSOR }
     
-    role_hierarchy:
-        ROLE_PROFESSOR: ROLE_USER
-        ROLE_STUDENT: ROLE_USER
+    # role_hierarchy:
+    #     ROLE_PROFESSOR: ROLE_USER
+    #     ROLE_STUDENT: ROLE_USER
