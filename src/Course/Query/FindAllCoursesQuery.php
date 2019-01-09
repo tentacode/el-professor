@@ -43,7 +43,16 @@ class FindAllCoursesQuery
             ;
     
             foreach ($files as $file) {
-                $markdown = file_get_contents($file->getRealPath());
+                $markdownFilepath = $file->getRealPath();
+                $markdown = file_get_contents($markdownFilepath);
+                
+                if (false === $markdown) {
+                    throw new \RuntimeException('Could not read markdown file "%s".', $markdownFilepath);
+                }
+
+                if (empty($markdown)) {
+                    throw new \RuntimeException('Markdown file "%s" is empty.', $markdownFilepath);
+                }
     
                 $course->addChapter(new Chapter(
                     $markdown,

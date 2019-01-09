@@ -22,3 +22,7 @@ reset: ## Resets dataset
 
 build: ## Build assets
 	yarn run encore dev
+
+test: ## Test project as in CI
+	bin/phpspec run -fpretty --no-interaction -v
+	bin/phpstan analyse src/ --level=7

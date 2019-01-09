@@ -26,3 +26,7 @@ yarn-error.log
 /bin/
 /private/
 ###> el-professor ###
+###> squizlabs/php_codesniffer ###
+/.phpcs-cache
+/phpcs.xml
+###< squizlabs/php_codesniffer ###

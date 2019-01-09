@@ -30,7 +30,9 @@
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.0",
         "phpspec/phpspec": "^5.0",
+        "phpstan/phpstan": "^0.10.8",
         "sensiolabs/security-checker": "^4.1",
+        "squizlabs/php_codesniffer": "*",
         "symfony/debug-pack": "*",
         "symfony/dotenv": "*",
         "symfony/maker-bundle": "^1.0",

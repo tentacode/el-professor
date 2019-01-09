@@ -11,9 +11,8 @@ class ChapterSpec extends ObjectBehavior
     function let()
     {
         $this->beConstructedWith(
-            'À propos de Symfony',
-            'a-propos-de-symfony',
-            "Symfony c'est cool."
+            '# À propos de Symfony',
+            'a-propos-de-symfony'
         );
     }
 
@@ -34,6 +33,6 @@ class ChapterSpec extends ObjectBehavior
 
     function it_has_a_content()
     {
-        $this->getContent()->shouldReturn("Symfony c'est cool.");
+        $this->getContent()->shouldReturn("<h1>À propos de Symfony</h1>");
     }
 }

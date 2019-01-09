@@ -18,7 +18,7 @@ class Chapter
 
         $this->title = $slug;
         if (preg_match('/^#([^#\n]+)/m', $markdown, $matches)) {
-            $this->title = $matches[1];
+            $this->title = trim($matches[1]);
         }
 
         $this->markdown = $markdown;
@@ -57,7 +57,7 @@ class Chapter
 
     private function toHtml(): string
     {
-        $html = $this->parsedown->text($this->markdown);
+        $html = (string) $this->parsedown->text($this->markdown);
 
         $html = preg_replace_callback(
             '#<h2>([^<]+)</h2>#',
@@ -71,17 +71,30 @@ class Chapter
             $html
         );
 
+        if ($html === null) {
+            throw new \LogicException('Could not replace h2 in html.');
+        }
+
         $html = preg_replace(
             '/<table>/',
             '<table class="table table-borderless table-hover table-dark table-striped ">',
             $html
         );
 
+        if ($html === null) {
+            throw new \LogicException('Could not replace tables in html.');
+        }
+
         return $html;
     }
 
     private function slugify($string): string
     {
-        return strtolower(preg_replace('/[^A-Za-z]/', '-', trim($string)));
+        $replaced = preg_replace('/[^A-Za-z]/', '-', trim($string));
+        if (null === $replaced) {
+            throw new \LogicException('Could not replace non alphanumerics for slug.');
+        }
+
+        return strtolower($replaced);
     }
 }
