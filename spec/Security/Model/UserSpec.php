@@ -12,4 +12,11 @@ class UserSpec extends ObjectBehavior
     {
         $this->shouldHaveType(User::class);
     }
+
+    function it_has_a_unique_id()
+    {
+        $this->setUid('1234');
+
+        $this->getUid()->shouldReturn('1234');
+    }
 }

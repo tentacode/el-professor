@@ -18,12 +18,17 @@ class User implements UserInterface
     private $id;
 
     /**
+     * @ORM\Column(type="string", length=36, unique=true)
+     */
+    private $uid;
+
+    /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
     private $email;
 
     /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="simple_array")
      */
     private $roles = [];
 
@@ -84,7 +89,7 @@ class User implements UserInterface
      */
     public function getPassword(): string
     {
-        return (string) $this->password;
+        return $this->password;
     }
 
     public function setPassword(string $password): self
@@ -109,5 +114,15 @@ class User implements UserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
+    }
+
+    public function setUid(string $uid)
+    {
+        $this->uid = $uid;
+    }
+
+    public function getUid(): string
+    {
+        return $this->uid;
     }
 }

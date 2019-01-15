@@ -3,11 +3,29 @@ language: php
 php:
     - 7.3
 
+services:
+    - mysql
+
+cache:
+    yarn: true
+    directories:
+        - $HOME/.composer/cache/files
+
+before_install:
+    - phpenv config-rm xdebug.ini
+
+install:
+    - composer install -v
+    - yarn install
+    - yarn encore dev
+
 before_script:
-    - composer install --dev -v --prefer-source
+    - make reset
+    - make start
 
 script:
     - bin/phpspec run -fpretty --verbose --no-interaction
     - bin/phpstan analyse src --level=7
     - bin/phpcs
     - bin/console security:check
+    - bin/behat -v

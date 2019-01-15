@@ -18,14 +18,16 @@
             </main>
         {% endblock %}
 
-        <footer class="text-muted">
-            <div class="container">
-                <p class="float-right">
-                    <a href="#"><i class="fas fa-angle-double-up"></i> revenir en haut</a>
-                </p>
-                <p>Par <a href="https://www.twitter.com/tentacode">@tentacode</a>, <a href="https://github.com/tentacode/el-professor">voir sur github</a>.</p>
-            </div>
-        </footer>
+        {% block footer %}
+            <footer class="text-muted">
+                <div class="container">
+                    <p class="float-right">
+                        <a href="#"><i class="fas fa-angle-double-up"></i> revenir en haut</a>
+                    </p>
+                    <p class="text-secondary">Par <a href="https://www.twitter.com/tentacode">@tentacode</a>, <a href="https://github.com/tentacode/el-professor">voir sur github</a>.</p>
+                </div>
+            </footer>
+        {% endblock %}
 
         {% block javascripts %}
             <script src="{{ asset('build/app.js') }}"></script>
