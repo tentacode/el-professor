@@ -10,6 +10,8 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class User implements UserInterface
 {
+    const TOKEN_EXPIRATION = '-1 hour';
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -33,10 +35,16 @@ class User implements UserInterface
     private $roles = [];
 
     /**
-     * @var string The hashed password
+     * @var string The hashed password, also the passwordless token
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @var \DateTimeImmutable The hashed password
+     * @ORM\Column(type="datetime_immutable", nullable=true)
+     */
+    private $lastTokenDate;
 
     public function getId(): ?int
     {
@@ -124,5 +132,17 @@ class User implements UserInterface
     public function getUid(): string
     {
         return $this->uid;
+    }
+
+    public function setLastTokenDate(\DateTimeImmutable $lastTokenDate): void
+    {
+        $this->lastTokenDate = $lastTokenDate;
+    }
+
+    public function hasTokenExpired(): bool
+    {
+        $maxTokenDate = new \DateTimeImmutable(self::TOKEN_EXPIRATION);
+
+        return $maxTokenDate->getTimestamp() > $this->lastTokenDate->getTimestamp();
     }
 }

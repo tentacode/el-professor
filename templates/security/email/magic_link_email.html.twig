@@ -4,7 +4,6 @@
     Voici votre lien magique de connection sur El-Professor.
 {% endblock %}
 
-
 {% block main_content %}
     <h1>Votre lien magique</h1>
     <p>
@@ -16,7 +15,10 @@
 {% endblock %}
 
 {% block call_to_action_link %}
-    <a href="http://htmlemail.io" target="_blank">Me Connecter</a>
+    <a href="{{ url('landing', {
+        pl_uid: uid,
+        pl_token: token
+    }) }}" target="_blank">Me Connecter</a>
 {% endblock %}
 
 {% block footer_text %}

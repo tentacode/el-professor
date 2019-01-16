@@ -30,7 +30,6 @@ class MagicLink extends AbstractController
      */
     public function __invoke(Request $request): Response
     {
-        // creates a task and gives it some dummy data for this example
         $form = $this->getMagicForm();
 
         $form->handleRequest($request);

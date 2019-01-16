@@ -12,6 +12,7 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Guard\AbstractGuardAuthenticator;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface as Encoder;
 use App\Security\Query\FindUserByUid;
+use App\Security\Model\User;
 
 class PasswordLessAuthenticator extends AbstractGuardAuthenticator
 {
@@ -55,6 +56,17 @@ class PasswordLessAuthenticator extends AbstractGuardAuthenticator
         $token = $credentials['token'];
 
         if ($token === null) {
+            return false;
+        }
+
+        if (!$user instanceof User) {
+            throw new \LogicException(sprintf(
+                'User must be of class "%s".',
+                User::class
+            ));
+        }
+
+        if ($user->hasTokenExpired()) {
             return false;
         }
 

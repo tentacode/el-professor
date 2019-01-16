@@ -23,6 +23,7 @@ class UserFixtures extends Fixture
         $adminUser->setRoles(['ROLE_ADMIN']);
         $adminUser->setUid('uid-1234');
         $adminUser->setPassword($this->encoder->encodePassword($adminUser, 'token-1234'));
+        $adminUser->setLastTokenDate(new \DateTimeImmutable());
 
         $manager->persist($adminUser);
 
