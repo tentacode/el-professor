@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block footer '' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="offset-lg-3 col-lg-6">
+            <div class="jumbotron">
+                <h1 class="display-5 text-center">
+                    <i class="fas fa-hat-wizard"></i> Lien Magique
+                </h1>
+                <hr>
+                <div class="alert alert-success">
+                    Lien magique envoyé !
+                </div>
+                <p class="lead">
+                    Votre lien magique vous a été envoyé par e-mail, cliquez dessus pour vous connecter !
+                </p>
+                <p class="small text-secondary">
+                    Le lien n'est valide qu'une heure. Si il a expiré ou que vous voulez en renvoyer un
+                    <a href="{{ path('magic_link') }}">cliquez-ici</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

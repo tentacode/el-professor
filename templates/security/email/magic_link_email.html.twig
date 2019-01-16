@@ -1,0 +1,29 @@
+{% extends 'email/base.html.twig' %}
+
+{% block preheader %}
+    Voici votre lien magique de connection sur El-Professor.
+{% endblock %}
+
+{% block main_content %}
+    <h1>Votre lien magique</h1>
+    <p>
+        Vous avez demandé un lien pour vous connecter sur le site
+        <a href="{{ url('landing') }}">El Professor</a>.
+        Pour vous connecter il suffit de cliquer sur le bouton ci-dessous :
+    </p>
+    <p>&nbsp;</p>
+{% endblock %}
+
+{% block call_to_action_link %}
+    <a href="{{ url('landing', {
+        pl_uid: uid,
+        pl_token: token
+    }) }}" target="_blank">Me Connecter</a>
+{% endblock %}
+
+{% block footer_text %}
+    <a href="{{ url('magic_link_email', {
+        uid: uid,
+        token: token
+    }) }}">Voir cet e-mail dans votre navigateur</a>
+{% endblock %}

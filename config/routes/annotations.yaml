@@ -1,3 +1,11 @@
 controllers:
-    resource: ../../src/Controller/
+    resource: ../../src/Controller
+    type: annotation
+
+landing_controllers:
+    resource: ../../src/Landing/Controller
+    type: annotation
+
+security_controllers:
+    resource: ../../src/Security/Controller
     type: annotation

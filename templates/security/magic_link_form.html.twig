@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block footer '' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="offset-lg-3 col-lg-6">
+            <div class="jumbotron">
+                <h1 class="display-5 text-center">
+                    <i class="fas fa-magic"></i> Lien Magique
+                </h1>
+                <hr>
+                <p class="lead">
+                    Pour vous connecter, remplissez votre e-mail pour recevoir un lien de connexion magique.
+                </p>
+
+                {{ form_start(form) }}
+                    {% for message in app.flashes('magic_link_error') %}
+                        <div class="alert alert-danger" role="alert">
+                             {{ message }} <i class="fas fa-skull-crossbones"></i>
+                        </div>
+                    {% endfor %}
+
+                    {{ form_widget(form) }}
+
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-magic"></i> Envoyer le lien magique
+                        </button>
+                    </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
