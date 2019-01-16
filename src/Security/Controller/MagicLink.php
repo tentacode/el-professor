@@ -63,6 +63,14 @@ class MagicLink extends AbstractController
         return $this->render('security/magic_link_success.html.twig');
     }
 
+    /**
+     * @Route("/magic-link/failure", name="magic_link_failure")
+     */
+    public function failure(): Response
+    {
+        return $this->render('security/magic_link_failure.html.twig');
+    }
+
     private function getMagicForm(): FormInterface
     {
         $user = new User();

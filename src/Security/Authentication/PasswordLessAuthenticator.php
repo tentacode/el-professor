@@ -2,6 +2,7 @@
 
 namespace App\Security\Authentication;
 
+use Symfony\Component\Routing\RouterInterface as Router;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
@@ -16,11 +17,13 @@ class PasswordLessAuthenticator extends AbstractGuardAuthenticator
 {
     private $findUserByUid;
     private $encoder;
+    private $router;
 
-    public function __construct(FindUserByUid $findUserByUid, Encoder $encoder)
+    public function __construct(FindUserByUid $findUserByUid, Encoder $encoder, Router $router)
     {
         $this->findUserByUid = $findUserByUid;
         $this->encoder = $encoder;
+        $this->router = $router;
     }
 
     public function supports(Request $request)
@@ -60,7 +63,7 @@ class PasswordLessAuthenticator extends AbstractGuardAuthenticator
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception)
     {
-        throw new \RuntimeException('Could not authenticate.');
+        return new RedirectResponse('/magic-link/failure');
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
@@ -70,7 +73,7 @@ class PasswordLessAuthenticator extends AbstractGuardAuthenticator
 
     public function start(Request $request, AuthenticationException $authException = null)
     {
-        return new RedirectResponse('/magic-link');
+        return new RedirectResponse($this->router->generate('magic_link'));
     }
 
     public function supportsRememberMe()

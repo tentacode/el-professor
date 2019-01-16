@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block footer '' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <div class="jumbotron">
+                <h1 class="display-5 text-center">
+                    <i class="fas fa-hat-wizard"></i> Lien Magique
+                </h1>
+                <hr>
+                <div class="alert alert-danger">
+                    Votre lien n'a pas l'air de fonctionner <i class="fas fa-skull-crossbones"></i>
+                </div>
+                <p class="lead">
+                    Votre lien magique a peut-être expiré, voulez-vous le renvoyer ?
+                </p>
+
+                <p class="text-center">
+                    <a href="{{ path('magic_link') }}" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-magic"></i> Renvoyer le lien magique
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
