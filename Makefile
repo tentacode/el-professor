@@ -18,15 +18,26 @@ reset: ## Resets dataset
 	bin/console doctrine:database:drop --if-exists --force
 	bin/console doctrine:database:create
 	bin/console doctrine:migrations:migrate -n
-	bin/console doctrine:fixture:load -n
+	bin/console fixtures:load
 
 build: ## Build assets
 	yarn run encore dev
 
 test: ## Test project as in CI
-	bin/phpspec run -fpretty --no-interaction -v
 	bin/phpstan analyse src/ --level=7
 	bin/phpcs
+	bin/console security:check
+	bin/phpspec run -fpretty --no-interaction -v
+	bin/behat -v
+	bin/console doc:schema:validate
 
 stan: ## Static analysis with phpstan
 	bin/phpstan analyse src/ --level=7
+
+reset-migrations: ## Reset all migrations
+	rm -Rf ./src/Migrations/*
+	bin/console doc:database:drop --force --if-exists
+	bin/console doc:database:create
+	bin/console make:migration
+	bin/console doc:mig:mig -n
+	bin/console fixtures:load

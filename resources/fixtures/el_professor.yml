@@ -1,0 +1,35 @@
+App\Security\Model\User:
+    user_elp:
+        email: el-professor@lcdp.es
+        uid: uid-elp
+        firstname: El
+        lastname: Professor
+        roles: ['ROLE_ADMIN']
+        password: <encodePassword(@self, 'token-elp')>
+        lastTokenDate: <dateTimeBetween('-10 seconds','now')>
+
+    user_berlin:
+        email: berlin@lcdp.es
+        uid: uid-berlin
+        firstname: Ber
+        lastname: Lin
+        picture: fixtures/berlin.png
+        roles: ['ROLE_STUDENT']
+        password: <encodePassword(@self, 'token-berlin')>
+        lastTokenDate: <dateTimeBetween('-10 seconds','now')>
+
+App\Logbook\Model\Log:
+    logbook_berlin-log-{1..6}:
+        __construct:
+            - '@user_elp'
+        project: <logProject()>
+        text: <text(500)>
+        date: <dateTimeBetween('-10 days','-1 day')>
+
+    logbook_berlin-log-7:
+        __construct:
+            - '@user_berlin'
+        project: plante_connectee
+        text: Aujourd'hui j'ai enfin réussi à connecter ma plante !
+        date: <dateTimeBetween('-12 hour','now')>
+        media: 'fixtures/berlin-log-plante.jpg'

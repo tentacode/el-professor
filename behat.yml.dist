@@ -2,6 +2,8 @@ default:
     suites:
         default:
             contexts:
+                - FixtureContext
+                - SecurityContext
                 - Behat\MinkExtension\Context\MinkContext
 
     extensions:

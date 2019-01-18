@@ -41,10 +41,24 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @var \DateTimeImmutable The hashed password
-     * @ORM\Column(type="datetime_immutable", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $lastTokenDate;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $firstname;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $lastname;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $picture;
 
     public function getId(): ?int
     {
@@ -134,15 +148,45 @@ class User implements UserInterface
         return $this->uid;
     }
 
-    public function setLastTokenDate(\DateTimeImmutable $lastTokenDate): void
+    public function setLastTokenDate(\DateTime $lastTokenDate): void
     {
         $this->lastTokenDate = $lastTokenDate;
     }
 
     public function hasTokenExpired(): bool
     {
-        $maxTokenDate = new \DateTimeImmutable(self::TOKEN_EXPIRATION);
+        $maxTokenDate = new \DateTime(self::TOKEN_EXPIRATION);
 
         return $maxTokenDate->getTimestamp() > $this->lastTokenDate->getTimestamp();
+    }
+
+    public function setFirstname(string $firstname): void
+    {
+        $this->firstname = $firstname;
+    }
+
+    public function getFirstname(): string
+    {
+        return $this->firstname;
+    }
+
+    public function setLastname(string $lastname)
+    {
+        $this->lastname = $lastname;
+    }
+
+    public function getLastname(): string
+    {
+        return $this->lastname;
+    }
+
+    public function setPicture(string $picture)
+    {
+        $this->picture = $picture;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
     }
 }

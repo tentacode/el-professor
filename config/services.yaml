@@ -4,33 +4,25 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: 'en'
+    locale: 'fr'
+    logbook_upload_directory: '%kernel.project_dir%/public/upload/logbook'
 
 services:
-    # default configuration for services in *this* file
     _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
-        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
-        public: false       # Allows optimizing the container by removing unused services; this also means
-                            # fetching services directly from the container via $container->get() won't work.
-                            # The best practice is to be explicit about your dependencies anyway.
+        autowire: true
+        autoconfigure: true
+        public: false
+
+        bind:
+            $projectDirectory: '%kernel.project_dir%'
 
     _instanceof:
         Symfony\Bundle\FrameworkBundle\Controller\AbstractController:
             tags: ['controller.service_arguments']
 
-    # makes classes in src/ available to be used as services
-    # this creates a service per class whose id is the fully-qualified class name
     App\:
         resource: '../src/*'
         exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
-    App\Course\Query\FindOneCourseQuery:
-        arguments:
-            $projectDirectory: '%kernel.project_dir%'
-            
-    App\Course\Query\FindAllCoursesQuery:
-        arguments:
-            $projectDirectory: '%kernel.project_dir%'
+    # TODO move in fixtures
+    Nelmio\Alice\Loader\SimpleFileLoader: "@nelmio_alice.file_loader.simple"

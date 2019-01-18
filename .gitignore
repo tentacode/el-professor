@@ -24,6 +24,8 @@ yarn-error.log
 ###< el-professor ###
 /bin/
 /private/
+/public/upload
+!/public/upload/*/fixtures
 ###> el-professor ###
 ###> squizlabs/php_codesniffer ###
 /.phpcs-cache

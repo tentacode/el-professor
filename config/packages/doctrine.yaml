@@ -7,14 +7,11 @@ parameters:
 
 doctrine:
     dbal:
-        # configure these for your database server
         driver: 'pdo_mysql'
-        server_version: '5.7'
         charset: utf8mb4
         default_table_options:
             charset: utf8mb4
             collate: utf8mb4_unicode_ci
-
         url: '%env(resolve:DATABASE_URL)%'
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
@@ -27,3 +24,9 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Security/Model'
                 prefix: 'App\Security\Model'
                 alias: Security
+            App\Logbook\Model:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Logbook/Model'
+                prefix: 'App\Logbook\Model'
+                alias: Logbook

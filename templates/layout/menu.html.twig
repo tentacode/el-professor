@@ -7,16 +7,26 @@
                     <strong>El Professor</strong>
                 </a>
             </li>
-            {% if is_granted('ROLE_PROFESSOR') %}
+            {% if is_granted('ROLE_STUDENT') %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('professor_module_list') }}">
-                        <i class="fas fa-chalkboard-teacher"></i> Mes modules
+                    <a class="nav-link" href="{{ path('logbook_display') }}">
+                        <i class="fas fa-book"></i> Journal de bord
                     </a>
                 </li>
             {% endif %}
         </ul>
         <ul class="navbar-nav flex-row">
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    {% if app.user.picture %}
+                        <li class="mr-2">
+                            <div class="avatar">
+                                <img
+                                    src="{{ asset('upload/profile_picture/' ~ app.user.picture) }}"
+                                    alt="{{ app.user.firstname }} {{ app.user.lastname }}"
+                                />
+                            </div>
+                        </li>
+                    {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('logout') }}">
                         <i class="fas fa-sign-out-alt"></i> se déconnecter

@@ -17,6 +17,7 @@ import hljs from 'highlight.js';
 hljs.initHighlightingOnLoad();
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
-// var $ = require('jquery');
+var $ = require('jquery');
+global.$ = global.jQuery = $;
 
 console.log('Welcome to El Professor.');
