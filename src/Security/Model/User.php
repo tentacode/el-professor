@@ -36,7 +36,7 @@ class User implements UserInterface
 
     /**
      * @var string The hashed password, also the passwordless token
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $password;
 
