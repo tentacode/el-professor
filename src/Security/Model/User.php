@@ -60,6 +60,11 @@ class User implements UserInterface
      */
     private $picture;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $lastActivityDate;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -188,5 +193,10 @@ class User implements UserInterface
     public function getPicture(): ?string
     {
         return $this->picture;
+    }
+
+    public function setLastActivityDate(\DateTime $lastActivityDate): void
+    {
+        $this->lastActivityDate = $lastActivityDate;
     }
 }
