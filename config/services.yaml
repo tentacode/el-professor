@@ -26,3 +26,7 @@ services:
 
     # TODO move in fixtures
     Nelmio\Alice\Loader\SimpleFileLoader: "@nelmio_alice.file_loader.simple"
+
+    App\Security\Activity\ActivityListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.request }
