@@ -20,12 +20,12 @@ install:
     - yarn encore dev
 
 before_script:
-    - make reset
     - make start
 
 script:
-    - bin/phpspec run -fpretty --verbose --no-interaction
-    - bin/phpstan analyse src --level=7
+    - bin/phpstan analyse src/ --level=7
     - bin/phpcs
     - bin/console security:check
+    - bin/phpspec run -fpretty --no-interaction -v
     - bin/behat -v
+    - bin/console doc:schema:validate

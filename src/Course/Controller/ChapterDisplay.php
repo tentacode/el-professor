@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Controller\Course;
+namespace App\Course\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Course\Query\FindOneCourseQuery;
 
-class ChapterDisplayController extends AbstractController
+class ChapterDisplay extends AbstractController
 {
     private $findOneCourseQuery;
 

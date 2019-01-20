@@ -1,9 +1,13 @@
-controllers:
-    resource: ../../src/Controller
+course_controllers:
+    resource: ../../src/Course/Controller
     type: annotation
 
 landing_controllers:
     resource: ../../src/Landing/Controller
+    type: annotation
+
+logbook_controllers:
+    resource: ../../src/Logbook/Controller
     type: annotation
 
 security_controllers:

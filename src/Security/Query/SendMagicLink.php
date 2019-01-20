@@ -39,7 +39,7 @@ class SendMagicLink
 
         $encodedPassword = $this->encoder->encodePassword($user, $plainPassword);
         $user->setPassword($encodedPassword);
-        $user->setLastTokenDate(new \DateTimeImmutable());
+        $user->setLastTokenDate(new \DateTime());
 
         $this->em->persist($user);
         $this->em->flush();

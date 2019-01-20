@@ -38,6 +38,6 @@ security:
         - { path: ^/magic-link, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, roles: ROLE_USER }
     
-    # role_hierarchy:
-    #     ROLE_PROFESSOR: ROLE_USER
-    #     ROLE_STUDENT: ROLE_USER
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_STUDENT
+        ROLE_STUDENT: ROLE_USER

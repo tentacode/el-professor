@@ -22,10 +22,28 @@ class UserSpec extends ObjectBehavior
 
     function it_tells_if_token_is_expired()
     {
-        $this->setLastTokenDate(new \DateTimeImmutable('-59 minutes'));
+        $this->setLastTokenDate(new \DateTime('-59 minutes'));
         $this->hasTokenExpired()->shouldReturn(false);
 
-        $this->setLastTokenDate(new \DateTimeImmutable('-1 hour -1 minute'));
+        $this->setLastTokenDate(new \DateTime('-1 hour -1 minute'));
         $this->hasTokenExpired()->shouldReturn(true);
+    }
+
+    function it_has_a_firstname()
+    {
+        $this->setFirstname('Sherlock');
+        $this->getFirstname()->shouldReturn('Sherlock');
+    }
+
+    function it_has_a_lastname()
+    {
+        $this->setLastname('Holmes');
+        $this->getLastname()->shouldReturn('Holmes');
+    }
+
+    function it_has_a_picture()
+    {
+        $this->setPicture('/img/sherlock.jpg');
+        $this->getPicture()->shouldReturn('/img/sherlock.jpg');
     }
 }
