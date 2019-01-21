@@ -4,6 +4,7 @@ App\Security\Model\User:
         uid: uid-elp
         firstname: El
         lastname: Professor
+        picture: fixtures/elp.jpg
         roles: ['ROLE_ADMIN']
         password: <encodePassword(@self, 'token-elp')>
         lastTokenDate: <dateTimeBetween('-10 seconds','now')>
@@ -14,14 +15,15 @@ App\Security\Model\User:
         firstname: Ber
         lastname: Lin
         picture: fixtures/berlin.png
-        roles: ['ROLE_STUDENT']
+        roles: ['ROLE_LOGBOOK']
         password: <encodePassword(@self, 'token-berlin')>
         lastTokenDate: <dateTimeBetween('-10 seconds','now')>
+        lastActivityDate: <dateTimeBetween('-10 seconds','now')>
 
 App\Logbook\Model\Log:
     logbook_berlin-log-{1..6}:
         __construct:
-            - '@user_elp'
+            - '@user_berlin'
         project: <logProject()>
         text: <text(500)>
         date: <dateTimeBetween('-10 days','-1 day')>

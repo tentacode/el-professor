@@ -33,7 +33,7 @@ class Log
     private $date;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Security\Model\User")
+     * @ORM\ManyToOne(targetEntity="App\Security\Model\User", inversedBy="logbookLogs")
      * @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=false)
      */
     private $user;
