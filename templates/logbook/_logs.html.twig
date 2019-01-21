@@ -1,0 +1,17 @@
+{% for log in logs %}
+    <div class="card mb-4">
+        <div class="card-body">
+            <h5 class="card-title mb-3">{{ log.date|pretty_long_date }}</h5>
+            <h6 class="card-subtitle mb-3 text-muted">j'ai travaillé sur le projet {{ log.projectLabel }}</h6>
+            <p class="card-text">{{ log.text }}</p>
+        </div>
+        {% if log.media %}
+            <img src="{{ asset('upload/logbook/' ~ log.media) }}" class="card-img-bottom">
+        {% endif %}
+    </div>
+{% else %}
+    <div class="card mb-4">
+        <div class="card-body">
+            <p class="card-text">Aucune entrée dans le journal.</p>
+        </div>
+{% endfor %}

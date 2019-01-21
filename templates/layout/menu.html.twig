@@ -7,10 +7,17 @@
                     <strong>El Professor</strong>
                 </a>
             </li>
-            {% if is_granted('ROLE_STUDENT') %}
+            {% if is_granted('ROLE_LOGBOOK') %}
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('logbook_display') }}">
                         <i class="fas fa-book"></i> Journal de bord
+                    </a>
+                </li>
+            {% endif %}
+            {% if is_granted('ROLE_SUPERVISOR') %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ path('logbook_supervision') }}">
+                        <i class="fas fa-book-reader"></i> Supervision
                     </a>
                 </li>
             {% endif %}
@@ -18,13 +25,12 @@
         <ul class="navbar-nav flex-row">
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     {% if app.user.picture %}
+                        {% set avatarPath = 'upload/profile_picture/' ~ app.user.picture %}
                         <li class="mr-2">
-                            <div class="avatar">
-                                <img
-                                    src="{{ asset('upload/profile_picture/' ~ app.user.picture) }}"
-                                    alt="{{ app.user.firstname }} {{ app.user.lastname }}"
-                                />
-                            </div>
+                            <div
+                                class="avatar"
+                                style="background-image: url({{ asset(avatarPath) }});"
+                            ></div>
                         </li>
                     {% endif %}
                 <li class="nav-item">

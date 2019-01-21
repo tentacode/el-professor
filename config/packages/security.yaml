@@ -36,8 +36,13 @@ security:
     access_control:
         - { path: ^/logout, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/magic-link, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/supervision, roles: ROLE_SUPERVISOR }
+        - { path: ^/journal-de-bord, roles: ROLE_LOGBOOK }
+        - { path: ^/jdb, roles: ROLE_LOGBOOK }
         - { path: ^/, roles: ROLE_USER }
     
     role_hierarchy:
-        ROLE_ADMIN: ROLE_STUDENT
+        ROLE_ADMIN: ROLE_STUDENT, ROLE_LOGBOOK, ROLE_SUPERVISOR
+        ROLE_SUPERVISOR: ROLE_USER
+        ROLE_LOGBOOK: ROLE_USER
         ROLE_STUDENT: ROLE_USER

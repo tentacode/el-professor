@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container pt-4">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2">
+                <p class="text-center lead">
+                
+                {% if student.picture %}
+                    {% set avatarPath = 'upload/profile_picture/' ~ student.picture %}
+                    <div
+                        class="avatar"
+                        style="background-image: url({{ asset(avatarPath) }});"
+                    ></div>
+                {% endif %}Journal de bord - {{ student.firstname }} {{ student.lastname }}
+                </p>
+
+                {% include 'logbook/_logs.html.twig' %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

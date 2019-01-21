@@ -4,6 +4,7 @@ namespace App\Security\Model;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @ORM\Entity
@@ -64,6 +65,11 @@ class User implements UserInterface
      * @ORM\Column(type="datetime", nullable=true)
      */
     private $lastActivityDate;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Logbook\Model\Log", mappedBy="user")
+     */
+    private $logbookLogs;
 
     public function getId(): ?int
     {
@@ -198,5 +204,15 @@ class User implements UserInterface
     public function setLastActivityDate(\DateTime $lastActivityDate): void
     {
         $this->lastActivityDate = $lastActivityDate;
+    }
+
+    public function getLastActivityDate(): ?\DateTime
+    {
+        return $this->lastActivityDate;
+    }
+
+    public function getLogbookLogs(): Collection
+    {
+        return $this->logbookLogs;
     }
 }

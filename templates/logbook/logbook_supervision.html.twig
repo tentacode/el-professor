@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid pt-4">
+        <h1 class="text-center">
+            <i class="fas fa-book-reader"></i>
+            Supervision
+        </h1>
+
+        <table class="table valign-middle">
+            <thead>
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Activité</th>
+                    <th scope="col">Journal de bord</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                    <tr>
+                        <td>
+                            <a href="{{ path('logbook_display_supervision', {uid: student.uid}) }}">
+                                {% if student.picture %}
+                                    {% set avatarPicture = 'upload/profile_picture/' ~ student.picture %}
+                                    <div
+                                        class="avatar"
+                                        style="background-image: url({{ asset(avatarPicture) }});"
+                                    ></div>
+                                {% endif %}
+                                {{ student.firstname }} {{ student.lastname }}
+                            </a>
+                        </td>
+                        <td>
+                            {% if student.lastActivityDate %}
+                                {{ student.lastActivityDate|pretty_long_date }}
+                            {% else %}
+                                aucune activité
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if student.logbookLogs|length == 1 %}
+                                1 entrée
+                            {% elseif student.logbookLogs|length > 1 %}
+                                {{ student.logbookLogs|length }} entrées
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
