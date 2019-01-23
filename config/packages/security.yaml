@@ -22,6 +22,9 @@ security:
                     - App\Security\Authentication\PasswordLessAuthenticator
             logout:
                 path: logout
+            remember_me:
+                secret:   '%kernel.secret%'
+                path:     /
 
             # activate different ways to authenticate
 
