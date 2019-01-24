@@ -25,6 +25,7 @@ security:
             remember_me:
                 secret:   '%kernel.secret%'
                 path:     /
+                always_remember_me: true
 
             # activate different ways to authenticate
 
