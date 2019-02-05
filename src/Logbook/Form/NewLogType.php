@@ -36,7 +36,7 @@ class NewLogType extends AbstractType
             ])
             ->add('mediaFile', FileType::class, [
                 'label' => 'Image',
-                'help' => "N'hésitez pas à ajouter une image de votre travail en cours (taille maximum : 2mo).",
+                'help' => "N'hésitez pas à ajouter une image de votre travail en cours (taille maximum : 10mo).",
                 'required' => false,
             ])
             ->add('submit', SubmitType::class, [

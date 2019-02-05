@@ -51,7 +51,7 @@ class Log
     private $text;
 
     /**
-     * @Assert\Image(maxSize = "2048k")
+     * @Assert\Image(maxSize = "10M")
      */
     private $mediaFile;
 
