@@ -13,7 +13,7 @@ class PrettyLongDate extends \Twig_Extension
 
     public function prettyLongDate(\DateTime $date): string
     {
-        setlocale(LC_ALL, 'fr_FR'); // @TODO not here
+        setlocale(LC_ALL, 'fr_FR.utf8'); // @TODO not here
 
         return mb_strtolower(strftime(
             'le %A %e %B à %kh%M',
