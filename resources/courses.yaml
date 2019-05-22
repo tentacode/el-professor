@@ -1,4 +1,10 @@
 courses:
+    php7:
+        name: PHP 7.3
+        description: Découvrir PHP 7
+        image: /img/courses/php7/logo.jpg
+        chapters:
+            directory: resources/courses/php7
     shell-scripting:
         name: Shell Scripting
         description: "sudo rm -Rf /"
@@ -11,12 +17,6 @@ courses:
         image: /img/courses/symfony-4/logo.png
         chapters:
             directory: resources/courses/symfony-4
-    rappels-php:
-        name: Rappels PHP
-        description: Révisions PHP 7.2
-        image: /img/courses/rappels-php/logo.jpg
-        chapters:
-            directory: resources/courses/rappels-php
     shopping:
         name: Projet Shopping
         description: Projet de mini-site marchand
