@@ -35,3 +35,9 @@ courses:
         image: /img/courses/twitter-mais/logo.jpg
         chapters:
             directory: resources/courses/twitter-mais
+    postgresql-project:
+        name: PostgreSQL Project
+        description: PostgreSQL - Github Archive
+        image: /img/courses/postgresql-project/logo.png
+        chapters:
+            directory: resources/courses/postgresql-project

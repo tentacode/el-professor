@@ -120,3 +120,13 @@ if ("quelque chose") {
 	// le code du if sera donc bien exécuté
 } 
 ```
+
+## Désalouer une variable
+
+Pour libérer l'espace mémoire pris par une variable (avant qu'elle sorte de son scope) on utilisera la fonction `unset` :
+
+```php
+$toto = 'Toto';
+unset($toto);
+var_dump($toto); // affichera "NULL"
+```
