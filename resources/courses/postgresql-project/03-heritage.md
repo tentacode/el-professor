@@ -15,4 +15,4 @@ Resources :
 * [Github Events](https://developer.github.com/v3/activity/events/types/)
 * [Héritage PostgreSQL](https://www.postgresql.org/docs/11/tutorial-inheritance.html)
 * [Types de données](https://www.postgresql.org/docs/11/datatype.html)
-* [sudo psql -u postgres psql -f](https://www.postgresql.org/docs/devel/app-psql.html) (cherchez aussi \connect).
+* [sudo -u postgres psql -f](https://www.postgresql.org/docs/devel/app-psql.html) (cherchez aussi \connect).
