@@ -8,7 +8,4 @@ Pour pouvoir se connecter à PostgreSQL depuis n'importe quelle machine distante
 
 Ensuite il faut modifier `pg_hba.conf` pour ajouter une règle de connection à distance avec l'ip voulue (pour vagrant c'est 10.0.2.2, mais essayez aussi avec l'ip de votre binome). Redémarer le serveur.
 
-Resources :
-
-* [JSON TYPES](https://www.postgresql.org/docs/11/datatype-json.html)
-* [JSONB OPERATOR AND FUNCTIONS](https://www.postgresql.org/docs/11/functions-json.html)
+Modifier le pg_hba.conf qui est dans votre github (/etc/pg_hba.conf) qui est une copie de `/etc/postgresql/11/main/pg_hba.conf`.
