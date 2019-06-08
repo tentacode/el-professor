@@ -8,6 +8,4 @@ Vous créerez un script "backup" qui appelera les commandes `pg_dump` et `pg_dum
 
 Resources :
 
-* [ANNEXE BACKUP](https://dba.stackexchange.com/a/2974)
-* [SQL INSERT](https://www.postgresql.org/docs/11/sql-insert.html)
-* [JSONB OPERATOR AND FUNCTIONS](https://www.postgresql.org/docs/11/functions-json.html)
+* [ANNEXE SAUVEGARDE ET RESTORATION](/course/postgresql-project/99-annexe-backup)
